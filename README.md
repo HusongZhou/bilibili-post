@@ -6,6 +6,14 @@
 
 接在 [bilingual-sub](../bilingual-sub) 后面用：它把视频、封面、双语字幕下到一个文件夹，这个 skill 拿那个文件夹写投稿包。
 
+一条命令串起来：
+
+```bash
+./bilingual_sub.sh "<URL>" --engine deepseek --post
+```
+
+`--post` 会在视频做好后自动生成 `bili/brief.md`，接着让模型按本 skill 的 SKILL.md 写标题、标签、简介。
+
 ## 用法
 
 在对话里说「这条视频发 B 站，起个标题」，或者直接：

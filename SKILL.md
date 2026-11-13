@@ -7,6 +7,14 @@ description: 给搬运/转载到 B 站的视频写投稿信息时使用：标题
 
 一个视频文件夹进来，一份照着填就能发的投稿包出去。
 
+## 上一个环节
+
+通常接在 `bilingual-sub` 后面：它把视频、封面、`.info.json`、双语字幕下到 `E:\Asset Library\youtube\<视频标题>\`，这里直接拿那个文件夹当输入。
+
+- 文件夹里的 `.bilingual.srt` 就是这个 skill 的全部原料，没有它先回去做字幕。
+- `.info.json` 决定元数据是全的还是「未知」（频道、日期、原链接都从这来）。
+- 上游加 `--post` 时，`bili/brief.md` 已经生成好了，第 0 步直接跳过。
+
 ## 开工前先读
 
 - `references/platform-rules.md`：字段上限、转载规则、标题红线。**写之前过一遍**，不然会产出违规标题。
@@ -18,6 +26,8 @@ description: 给搬运/转载到 B 站的视频写投稿信息时使用：标题
 ```bash
 python "<skill目录>/scripts/bili_brief.py" "E:\Asset Library\youtube\<视频文件夹>"
 ```
+
+**先看 `<视频文件夹>/bili/brief.md` 有没有**：上游 bilingual-sub 加了 `--post` 时已经生成好了，直接用，不要重跑（重跑无害，只是白花时间）。
 
 产出 `bili/brief.md`（元数据、章节、人物、候选钩子段）和 `bili/transcript.txt`（全文）。
 
