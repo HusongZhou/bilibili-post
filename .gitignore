@@ -1,0 +1,14 @@
+# 个人账号数据，不该进仓库
+profile/账号定位.md
+profile/复盘-*.md
+
+# 简报和投稿包是本地产物
+bili/
+*.brief.md
+transcript.txt
+
+# 系统垃圾
+.DS_Store
+Thumbs.db
+__pycache__/
+*.py[cod]
