@@ -32,6 +32,17 @@ python scripts/bili_brief.py "E:\Asset Library\youtube\<视频文件夹>"
 - **合规自查**：极限词、标题党词、站外引流、转载声明，投稿前过一遍，避免限流。
 - **发布后复盘**：`发布记录.csv` 攒数据，`bili_review.py` 出中位数对比，结论写回句式库。用得越久越贴合你这个号。
 
+## 封面
+
+原视频封面是 16:9、常带英文大字，直接传 B 站会被裁、观众也读不懂。这个脚本以前者为底改成 16:10：
+
+```bash
+python scripts/bili_cover.py "E:\Asset Library\youtube\<视频文件夹>" \
+  --hooks "它被低估了|不是爽剧" --label "《足球教练》"
+```
+
+左侧（或 `--panel` 指定的一侧）压一块深色面板，盖掉原外文标题，换上中文钩子。默认左侧；原文字在底部就用 `--panel bottom`。出图在 `bili/封面/`。
+
 ## 复盘
 
 ```bash
@@ -47,6 +58,7 @@ bilibili-post/
 ├── SKILL.md                        主流程
 ├── scripts/
 │   ├── bili_brief.py               视频文件夹 → 简报
+│   ├── bili_cover.py               原封面 → 16:10 B 站封面
 │   └── bili_review.py              发布记录 → 复盘报告
 ├── references/
 │   ├── platform-rules.md           字段上限、转载规则、标题红线
